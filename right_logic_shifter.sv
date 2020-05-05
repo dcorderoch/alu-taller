@@ -1,12 +1,18 @@
 module right_logic_shifter
-#(parameter w=3)
+
+#(parameter W=3)
 (
-  input [w-1:0] in,
-  input clk,
-  output reg [w-1:0] out
+  input logic [W-1:0] in,
+  input logic [W-1:0] shift,
+  output logic [W-1:0] out
 );
 
-shifter #(w) _shifter(in, clk, 1, out);
+logic [W-1:0] r;
+
+always_comb begin
+  r = in >> shift;
+end
+
+assign out = r;
 
 endmodule
-
