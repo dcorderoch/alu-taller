@@ -3,7 +3,7 @@ module right_logic_shifter
 #(parameter W=3)
 (
   input logic [W-1:0] in,
-  input logic shift,
+  input logic [W-1:0] shift,
   output logic [W-1:0] out
 );
 

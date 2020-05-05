@@ -12,14 +12,14 @@ module test_left_logic_shifter();
 
     a = 4'b0000;
     #100;
-    assert(y === 4'b0000) $display("Ok, y is 4'b0010"); else $error("4'b0000 failed");
+    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("4'b0000 failed");
     #100;
 
     // 1 bit
 
     a = 4'b1000;
     #100;
-    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("4'b0000 failed");
+    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("4'b1000 failed");
     #100;
 
     a = 4'b0100;
@@ -101,7 +101,7 @@ module test_left_logic_shifter();
 
 	  a = 4'b0000;
     #100;
-    assert(y === 4'b0000) $display("Ok, y is 4'b0010"); else $error("4'b0000 failed");
+    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("4'b0000 failed");
     #100;
 
     // 1 bit
@@ -145,7 +145,7 @@ module test_left_logic_shifter();
 
     a = 4'b1001;
     #100;
-    assert(y === 4'b0100) $display("Ok, y is 4'0100"); else $error("4'b1001 failed");
+    assert(y === 4'b0100) $display("Ok, y is 4'b0100"); else $error("4'b1001 failed");
     #100;
 
     // 2 bits (non-contiguous)
