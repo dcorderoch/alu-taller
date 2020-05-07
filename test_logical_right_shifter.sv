@@ -74,9 +74,9 @@ module test_logical_right_shifter();
     // 3 bits (contiguous)
 
     a = 4'b1110;
-	  #100;
+    #100;
     assert(y === 4'b0111) $display("Ok, y is 4'b0111"); else $error("4'b1110 failed");
-	  #100;
+    #100;
 
     // 3 bits (non-contiguous)
 
