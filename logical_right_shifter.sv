@@ -1,4 +1,4 @@
-module left_logic_shifter
+module logical_right_shifter
 
 #(parameter W=3)
 (
@@ -10,7 +10,7 @@ module left_logic_shifter
 logic [W-1:0] r;
 
 always_comb begin
-  r = in << shift;
+  r = in >> shift;
 end
 
 assign out = r;

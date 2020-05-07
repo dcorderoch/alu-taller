@@ -1,11 +1,11 @@
-module test_left_logic_shifter();
+module test_logical_left_shifter();
 
   logic [3:0] a;
   logic [3:0] y;
 
   logic [3:0] shift;
 
-  left_logic_shifter #(4) DUT(a, shift, y);
+  logical_left_shifter #(4) DUT(a, shift, y);
 
   initial begin
     shift = 1;
