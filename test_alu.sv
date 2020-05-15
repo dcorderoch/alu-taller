@@ -5,14 +5,14 @@ module test_alu();
   logic [3:0] a;
   logic [3:0] b;
 
-  logic [3:0] cin;
+  logic cin;
 
   logic [3:0] y;
 
-  logic [3:0] cout;
-  logic [3:0] overflow;
-  logic [3:0] negative;
-  logic [3:0] zero;
+  logic cout;
+  logic overflow;
+  logic negative;
+  logic zero;
 
   alu #(4) DUT(opcode,
            a,
