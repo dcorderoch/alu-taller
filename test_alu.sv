@@ -79,7 +79,7 @@ module test_alu();
     b = 4'b0101;
     cin = 4'b0000;
     #100;
-    assert(y === 4'b111) $display("Ok, y is 4'b1111"); else $error("OR failed");
+    assert(y === 4'b1111) $display("Ok, y is 4'b1111"); else $error("OR failed");
     #100;
 
     opcode = 4'b0110;
