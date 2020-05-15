@@ -59,35 +59,35 @@ module test_alu();
     #100;
 
     opcode = 4'b0011;
-    a = 4'b0001;
-    b = 4'b0001;
+    a = 4'b1000;
+    b = 4'b0000;
     cin = 4'b0000;
     #100;
-    assert(y === 4'b1110) $display("Ok, y is 4'b1110"); else $error("NOT failed");
+    assert(y === 4'b0111) $display("Ok, y is 4'b1000"); else $error("NOT failed");
     #100;
 
     opcode = 4'b0100;
-    a = 4'b0001;
-    b = 4'b0001;
+    a = 4'b1111;
+    b = 4'b0111;
     cin = 4'b0000;
     #100;
-    assert(y === 4'b0001) $display("Ok, y is 4'b1110"); else $error("AND failed");
+    assert(y === 4'b0111) $display("Ok, y is 4'b0111"); else $error("AND failed");
     #100;
 
     opcode = 4'b0101;
-    a = 4'b0001;
-    b = 4'b0001;
+    a = 4'b1010;
+    b = 4'b0101;
     cin = 4'b0000;
     #100;
-    assert(y === 4'b0001) $display("Ok, y is 4'b1110"); else $error("OR failed");
+    assert(y === 4'b111) $display("Ok, y is 4'b1111"); else $error("OR failed");
     #100;
 
     opcode = 4'b0110;
-    a = 4'b0001;
-    b = 4'b0001;
+    a = 4'b1100;
+    b = 4'b1010;
     cin = 4'b0000;
     #100;
-    assert(y === 4'b0000) $display("Ok, y is 4'b1110"); else $error("XOR failed");
+    assert(y === 4'b0110) $display("Ok, y is 4'b0110"); else $error("XOR failed");
     #100;
 
   end
