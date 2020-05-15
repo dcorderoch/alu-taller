@@ -23,10 +23,11 @@ output logic z  // zero
   logical_right_shifter #(w) _logical_right_shifter(a, b, lrs_out);
 
   always_comb begin
-  if(opcode === 'b0000)
-    out = lls_out;
-  else
-    out = lrs_out;
+  case (opcode)
+    'b0000: out = lls_out;
+    'b0001: out = lrs_out;
+    default: out = lls_out;
+  endcase
   end
 
   assign y = out;
