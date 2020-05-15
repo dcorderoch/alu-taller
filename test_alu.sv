@@ -60,7 +60,7 @@ module test_alu();
     assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("AR shift failed");
     #100;
 
-    opcode = AR;
+    opcode = AR_SHIFT_OP;
     a = 4'b1001;
     b = 4'b0001;
     cin = 4'b0000;
