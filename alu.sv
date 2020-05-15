@@ -22,10 +22,14 @@ output logic z  // zero
   logic [w-1:0] lrs_out;
   logical_right_shifter #(w) _logical_right_shifter(a, b, lrs_out);
 
+  logic [w-1:0] ars_out;;
+  arithmetic_right_shifter #(w) _arithmetic_right_shifter(a, b, ars_out);
+
   always_comb begin
   case (opcode)
     'b0000: out = lls_out;
     'b0001: out = lrs_out;
+    'b0010: out = ars_out;
     default: out = lls_out;
   endcase
   end
