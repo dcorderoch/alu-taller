@@ -24,9 +24,9 @@ module test_alu();
            negative,
            zero
           );
-  initial begin
-
   enum { LLShift = 'b0000, } OPS;
+
+  initial begin
 
     opcode = LLShift;
     a = 4'b0001;
