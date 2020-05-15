@@ -13,6 +13,6 @@ always_comb begin
 	r = a ^ b;
 end
 
-assign result = r;
+assign out = r;
 
 endmodule

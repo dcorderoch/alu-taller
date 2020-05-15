@@ -6,6 +6,11 @@ module not_gate
   output logic [W-1:0] out
 );
 
-assign result = ~a;
+logic [W-1:0] r;
+
+always_comb begin
+	r = ~a;
+end
+assign out = r;
 
 endmodule
