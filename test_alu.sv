@@ -25,12 +25,18 @@ module test_alu();
            zero
           );
   typedef enum logic [3:0] {  // 3-bit opcodes
-    LL_SHIFT = 'b0000,
+    LL_SHIFT_OP = 4'b0000,
+    LR_SHIFT_OP = 4'b0001,
+    AR_SHIFT_OP = 4'b0010,
+    NOT_OP = 4'b0011,
+    AND_OP = 4'b0100,
+    OR_OP = 4'b0101,
+    XOR_OP = 4'b0110
   } opcode_e;
 
   initial begin
 
-    opcode = LL_SHIFT;
+    opcode = LL_SHIFT_OP;
     a = 4'b0001;
     b = 4'b0001;
     cin = 4'b0000;
@@ -38,7 +44,7 @@ module test_alu();
     assert(y === 4'b0010) $display("Ok, y is 4'b0010"); else $error("LL shift failed");
     #100;
 
-    opcode = 4'b0001;
+    opcode = LR_SHIFT_OP;
     a = 4'b0001;
     b = 4'b0001;
     cin = 4'b0000;
@@ -46,7 +52,7 @@ module test_alu();
     assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("LR shift failed");
     #100;
 
-    opcode = 4'b0010;
+    opcode = AR_SHIFT_OP;
     a = 4'b0001;
     b = 4'b0001;
     cin = 4'b0000;
@@ -54,7 +60,7 @@ module test_alu();
     assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("AR shift failed");
     #100;
 
-    opcode = 4'b0010;
+    opcode = AR;
     a = 4'b1001;
     b = 4'b0001;
     cin = 4'b0000;
@@ -62,7 +68,7 @@ module test_alu();
     assert(y === 4'b1100) $display("Ok, y is 4'b1100"); else $error("AR shift failed");
     #100;
 
-    opcode = 4'b0011;
+    opcode = NOT_OP;
     a = 4'b1000;
     b = 4'b0000;
     cin = 4'b0000;
@@ -70,7 +76,7 @@ module test_alu();
     assert(y === 4'b0111) $display("Ok, y is 4'b1000"); else $error("NOT failed");
     #100;
 
-    opcode = 4'b0100;
+    opcode = AND_OP;
     a = 4'b1111;
     b = 4'b0111;
     cin = 4'b0000;
@@ -78,7 +84,7 @@ module test_alu();
     assert(y === 4'b0111) $display("Ok, y is 4'b0111"); else $error("AND failed");
     #100;
 
-    opcode = 4'b0101;
+    opcode = OR_OP;
     a = 4'b1010;
     b = 4'b0101;
     cin = 4'b0000;
@@ -86,7 +92,7 @@ module test_alu();
     assert(y === 4'b1111) $display("Ok, y is 4'b1111"); else $error("OR failed");
     #100;
 
-    opcode = 4'b0110;
+    opcode = XOR_OP;
     a = 4'b1100;
     b = 4'b1010;
     cin = 4'b0000;
