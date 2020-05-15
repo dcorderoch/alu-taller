@@ -31,7 +31,7 @@ module test_alu();
     b = 4'b0001;
     cin = 4'b0000;
     #100;
-    assert(y === 4'b0010) $display("Ok, y is 4'b0010"); else $error("shift failed");
+    assert(y === 4'b0010) $display("Ok, y is 4'b0010"); else $error("LL shift failed");
     #100;
 
     opcode = 4'b0001;
@@ -39,7 +39,7 @@ module test_alu();
     b = 4'b0001;
     cin = 4'b0000;
     #100;
-    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("shift failed");
+    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("LR shift failed");
     #100;
 
     opcode = 4'b0010;
@@ -47,7 +47,7 @@ module test_alu();
     b = 4'b0001;
     cin = 4'b0000;
     #100;
-    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("shift failed");
+    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("AR shift failed");
     #100;
 
     opcode = 4'b0010;
@@ -55,7 +55,39 @@ module test_alu();
     b = 4'b0001;
     cin = 4'b0000;
     #100;
-    assert(y === 4'b1100) $display("Ok, y is 4'b1100"); else $error("shift failed");
+    assert(y === 4'b1100) $display("Ok, y is 4'b1100"); else $error("AR shift failed");
+    #100;
+
+    opcode = 4'b0011;
+    a = 4'b0001;
+    b = 4'b0001;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b1110) $display("Ok, y is 4'b1110"); else $error("NOT failed");
+    #100;
+
+    opcode = 4'b0100;
+    a = 4'b0001;
+    b = 4'b0001;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b0001) $display("Ok, y is 4'b1110"); else $error("AND failed");
+    #100;
+
+    opcode = 4'b0101;
+    a = 4'b0001;
+    b = 4'b0001;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b0001) $display("Ok, y is 4'b1110"); else $error("OR failed");
+    #100;
+
+    opcode = 4'b0110;
+    a = 4'b0001;
+    b = 4'b0001;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b0000) $display("Ok, y is 4'b1110"); else $error("XOR failed");
     #100;
 
   end
