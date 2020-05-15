@@ -28,7 +28,7 @@ module test_alu();
 
   initial begin
 
-    opcode = LL_SHIFT_OP;
+    opcode = ops::LL_SHIFT_OP;
     a = 4'b0001;
     b = 4'b0001;
     cin = 4'b0000;
@@ -36,7 +36,7 @@ module test_alu();
     assert(y === 4'b0010) $display("Ok, y is 4'b0010"); else $error("LL shift failed");
     #100;
 
-    opcode = LR_SHIFT_OP;
+    opcode = ops::LR_SHIFT_OP;
     a = 4'b0001;
     b = 4'b0001;
     cin = 4'b0000;
@@ -44,7 +44,7 @@ module test_alu();
     assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("LR shift failed");
     #100;
 
-    opcode = AR_SHIFT_OP;
+    opcode = ops::AR_SHIFT_OP;
     a = 4'b0001;
     b = 4'b0001;
     cin = 4'b0000;
@@ -52,7 +52,7 @@ module test_alu();
     assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("AR shift failed");
     #100;
 
-    opcode = AR_SHIFT_OP;
+    opcode = ops::AR_SHIFT_OP;
     a = 4'b1001;
     b = 4'b0001;
     cin = 4'b0000;
@@ -60,7 +60,7 @@ module test_alu();
     assert(y === 4'b1100) $display("Ok, y is 4'b1100"); else $error("AR shift failed");
     #100;
 
-    opcode = NOT_OP;
+    opcode = ops::NOT_OP;
     a = 4'b1000;
     b = 4'b0000;
     cin = 4'b0000;
@@ -68,7 +68,7 @@ module test_alu();
     assert(y === 4'b0111) $display("Ok, y is 4'b1000"); else $error("NOT failed");
     #100;
 
-    opcode = AND_OP;
+    opcode = ops::AND_OP;
     a = 4'b1111;
     b = 4'b0111;
     cin = 4'b0000;
@@ -76,7 +76,7 @@ module test_alu();
     assert(y === 4'b0111) $display("Ok, y is 4'b0111"); else $error("AND failed");
     #100;
 
-    opcode = OR_OP;
+    opcode = ops::OR_OP;
     a = 4'b1010;
     b = 4'b0101;
     cin = 4'b0000;
@@ -84,7 +84,7 @@ module test_alu();
     assert(y === 4'b1111) $display("Ok, y is 4'b1111"); else $error("OR failed");
     #100;
 
-    opcode = XOR_OP;
+    opcode = ops::XOR_OP;
     a = 4'b1100;
     b = 4'b1010;
     cin = 4'b0000;
