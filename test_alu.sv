@@ -55,7 +55,7 @@ module test_alu();
     b = 4'b0001;
     cin = 4'b0000;
     #100;
-    assert(y === 4'b1100) $display("Ok, y is 4'b0000"); else $error("shift failed");
+    assert(y === 4'b1100) $display("Ok, y is 4'b1100"); else $error("shift failed");
     #100;
 
   end
