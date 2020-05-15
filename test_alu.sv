@@ -24,11 +24,13 @@ module test_alu();
            negative,
            zero
           );
-  enum { LLShift = 'b0000, } OPS;
+  typedef enum logic [3:0] {  // 3-bit opcodes
+    LL_SHIFT = 'b0000,
+  } opcode_e;
 
   initial begin
 
-    opcode = LLShift;
+    opcode = LL_SHIFT;
     a = 4'b0001;
     b = 4'b0001;
     cin = 4'b0000;
