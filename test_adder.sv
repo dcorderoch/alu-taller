@@ -1,29 +1,69 @@
 module test_adder();
-	logic [1:0] a;
-	logic [1:0] b;
-	logic [1:0] s;
-	logic cin;
-	logic cout;
-	adder #(2) DUT(a,b,cin,s,cout);
-	initial begin
-	cin=1;
-	a = 2'b00;
-	b = 2'b00;
-	#100;
-	assert(s === 2'b00) $display("Ok, s is 2'b00"); else $error("2'b00 failed");
-	#100;
-	
-	a = 2'b01;
-	b = 2'b00;
-	#100;
-	assert(s === 2'b01) $display("Ok, s is 2'b01"); else $error("2'b01 failed");
-	#100;
-	
-	
-	a = 2'b01;
-	b = 2'b01;
-	#100;
-	assert(s === 2'b10) $display("Ok, s is 2'b10"); else $error("2'b10 failed");
-	#100;
-	end
+
+  logic signed [3:0] a;
+  logic signed [3:0] b;
+  logic signed [3:0] y;
+  
+  logic cin;
+  logic cout;
+  
+  adder #(4) DUT(a, b, cin, y, cout);
+  
+  initial begin
+  
+    a = 4'b0000;
+	 b = 4'b0000;
+	 cin = 0;
+    #100;
+    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("sum or carry not correct");
+	 assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
+    #100;
+	 
+	 a = 4'b0001;
+	 b = 4'b0000;
+	 cin = 0;
+    #100;
+    assert(y === 4'b0001) $display("Ok, y is 4'b0001"); else $error("sum or carry not correct");
+	 assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
+    #100;
+	 
+	 a = 4'b0000;
+	 b = 4'b0001;
+	 cin = 0;
+    #100;
+    assert(y === 4'b0001) $display("Ok, y is 4'b0001"); else $error("sum or carry not correct");
+	 assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
+    #100;
+	 
+	 a = 4'b0000;
+	 b = 4'b0000;
+	 
+	 cin = 1;
+    #100;
+    assert(y === 4'b0001) $display("Ok, y is 4'b0001"); else $error("sum or carry not correct");
+	 assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
+    #100;
+	 
+	 
+	 a = 4'b0101;
+	 b = 4'b0001;
+	 
+	 cin = 0;
+    #100;
+    assert(y === 4'b0110) $display("Ok, y is 4'b0001"); else $error("sum or carry not correct");
+	 assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
+    #100;
+  
+  
+  
+  	 a = 4'b0100;
+	 b = 4'b0110;
+	 
+	 cin = 1;
+    #100;
+    assert(y === 4'b0011) $display("Ok, y is 4'b0011"); else $error("sum or carry not correct");
+	 assert(cout === 1) $display("Ok, cout is 1"); else $error("sum or carry not correct");
+    #100;
+  end
+
 endmodule
