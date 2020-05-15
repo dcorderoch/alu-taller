@@ -1,4 +1,4 @@
-package ops;
+package alu_ops;
 
   typedef enum logic [3:0] {  // 3-bit opcodes
     LL_SHIFT_OP = 4'b0000,

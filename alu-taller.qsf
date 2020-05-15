@@ -70,7 +70,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE test_logical_right_shifter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE test_arithmetic_right_shifter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE test_alu.sv
 set_global_assignment -name SYSTEMVERILOG_FILE alu.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ops.svh
+set_global_assignment -name SYSTEMVERILOG_FILE alu_ops.sv
 
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
