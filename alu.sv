@@ -29,4 +29,6 @@ output logic z  // zero
     out = lrs_out;
   end
 
+  assign y = out;
+
 endmodule
