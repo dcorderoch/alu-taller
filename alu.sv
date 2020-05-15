@@ -1,4 +1,5 @@
 module alu
+
 #(parameter w=3)
 (
 input logic [w-1:0] opcode, // op selector
@@ -37,15 +38,17 @@ output logic z  // zero
   logic [w-1:0] xor_out;
   xor_gate #(w) _xor_gate(a, b, xor_out);
 
+  import alu_ops::*;
+
   always_comb begin
   case (opcode)
-    'b0000: out = lls_out;
-    'b0001: out = lrs_out;
-    'b0010: out = ars_out;
-    'b0011: out = not_out;
-    'b0100: out = and_out;
-    'b0101: out = or_out;
-    'b0110: out = xor_out;
+    alu_ops::LL_SHIFT_OP: out = lls_out;
+    alu_ops::LR_SHIFT_OP: out = lrs_out;
+    alu_ops::AR_SHIFT_OP: out = ars_out;
+    alu_ops::NOT_OP: out = not_out;
+    alu_ops::AND_OP: out = and_out;
+    alu_ops::OR_OP: out = or_out;
+    alu_ops::XOR_OP: out = xor_out;
     default: out = lls_out;
   endcase
   end
