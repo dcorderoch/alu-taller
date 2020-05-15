@@ -22,7 +22,7 @@ output logic z  // zero
   logic [w-1:0] lrs_out;
   logical_right_shifter #(w) _logical_right_shifter(a, b, lrs_out);
 
-  logic [w-1:0] ars_out;;
+  logic [w-1:0] ars_out;
   arithmetic_right_shifter #(w) _arithmetic_right_shifter(a, b, ars_out);
 
   always_comb begin
