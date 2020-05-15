@@ -24,7 +24,7 @@ module test_alu();
            negative,
            zero
           );
-  `include "ops.svh"
+  import ops::*;
 
   initial begin
 
