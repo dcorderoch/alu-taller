@@ -79,7 +79,7 @@ output logic z  // zero
         negative = out[W-1];
         overflow = 'b0; // change
         case (out)
-          'b0: z = 'b1;
+          'b0: zero = 'b1;
           default: zero = 'b0;
         endcase
       end
