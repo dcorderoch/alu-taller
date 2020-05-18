@@ -128,6 +128,56 @@ module test_alu();
 
     // end Logical Right Shift Operations
 
+    opcode = alu_ops::AL_SHIFT_OP;
+    a = 4'b0001;
+    b = 4'b0001;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b0010) $display("Ok, y is 4'b0010"); else $error("AL shift failed");
+    #100;
+
+    opcode = alu_ops::AL_SHIFT_OP;
+    a = 4'b0001;
+    b = 4'b0010;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b0100) $display("Ok, y is 4'b0100"); else $error("AL shift failed");
+    #100;
+
+    opcode = alu_ops::AL_SHIFT_OP;
+    a = 4'b0010;
+    b = 4'b0001;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b0100) $display("Ok, y is 4'b0100"); else $error("AL shift failed");
+    #100;
+
+    opcode = alu_ops::AL_SHIFT_OP;
+    a = 4'b1000;
+    b = 4'b0001;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("AL shift failed");
+    #100;
+
+    opcode = alu_ops::AL_SHIFT_OP;
+    a = 4'b0001;
+    b = 4'b0011;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b1000) $display("Ok, y is 4'b1000"); else $error("AL shift failed");
+    #100;
+
+    opcode = alu_ops::AL_SHIFT_OP;
+    a = 4'b0101;
+    b = 4'b0001;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b1010) $display("Ok, y is 4'b1010"); else $error("AL shift failed");
+    #100;
+
+    // end Arithmetic Left Shift Operations
+
     opcode = alu_ops::AR_SHIFT_OP;
     a = 4'b0001;
     b = 4'b0001;
