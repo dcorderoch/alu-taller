@@ -56,10 +56,12 @@ output logic z  // zero
   always_comb begin
   case (opcode)
     default:
+    begin
       c_out = 0;
       v = 0;
       n = 0;
       z = 0;
+    end
   endcase
   end
 
