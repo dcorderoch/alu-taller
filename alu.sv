@@ -72,13 +72,13 @@ output logic z  // zero
   logic zero;
 
   always_comb begin
-  case (opcode) inside
+  case (opcode)
     alu_ops::ADD_OP, alu_ops::SUB_OP:
       begin
         carry_out = 'b0; // change
         negative = out[W-1];
         overflow = 'b0; // change
-        case (out) inside
+        case (out)
           'b0: z = 'b1;
           default: zero = 'b0;
         endcase
