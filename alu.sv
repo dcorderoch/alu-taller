@@ -53,6 +53,16 @@ output logic z  // zero
   endcase
   end
 
+  always_comb begin
+  case (opcode)
+    default:
+      c_out = 0;
+      v = 0;
+      n = 0;
+      z = 0;
+  endcase
+  end
+
   assign y = out;
 
 endmodule
