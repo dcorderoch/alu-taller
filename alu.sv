@@ -23,7 +23,7 @@ output logic z  // zero
   logical_right_shifter #(w) _logical_right_shifter(a, b, lrs_out);
 
   logic [w-1:0] als_out;
-  arithmetic_left_shifter #(w) _arithmetic_right_shifter(a, b, als_out);
+  arithmetic_left_shifter #(w) _arithmetic_left_shifter(a, b, als_out);
 
   logic [w-1:0] ars_out;
   arithmetic_right_shifter #(w) _arithmetic_right_shifter(a, b, ars_out);
