@@ -66,7 +66,6 @@ output logic z  // zero
   endcase
   end
 
-  logic carry_out;
   logic negative;
   logic overflow;
   logic zero;
@@ -75,7 +74,6 @@ output logic z  // zero
   case (opcode)
     alu_ops::ADD_OP, alu_ops::SUB_OP:
       begin
-        carry_out = 'b0; // change
         negative = out[W-1];
         overflow = 'b0; // change
         case (out)
@@ -85,7 +83,6 @@ output logic z  // zero
       end
     default:
       begin
-        carry_out = 'b0;
         overflow = 'b0;
         negative = 'b0;
         zero = 'b0;
@@ -95,7 +92,6 @@ output logic z  // zero
 
   assign y = out;
 
-  assign c_out = carry_out;
   assign n = negative;
   assign v = overflow;
   assign z = zero;
