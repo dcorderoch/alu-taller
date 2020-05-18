@@ -40,38 +40,29 @@ output logic z  // zero
 
   import alu_ops::*;
 
-  logic[3:0] flags;
+  always_comb begin
+  case (opcode)
+    alu_ops::LL_SHIFT_OP: out = lls_out;
+    alu_ops::LR_SHIFT_OP: out = lrs_out;
+    alu_ops::AR_SHIFT_OP: out = ars_out;
+    alu_ops::NOT_OP: out = not_out;
+    alu_ops::AND_OP: out = and_out;
+    alu_ops::OR_OP: out = or_out;
+    alu_ops::XOR_OP: out = xor_out;
+    default: out = lls_out;
+  endcase
+  end
 
   always_comb begin
   case (opcode)
-    alu_ops::LL_SHIFT_OP:
-      out = lls_out;
-      flags[3] = c_in ^ c_in;
-      flags[2] = c_in ^ c_in;
-      flags[1] = c_in ^ c_in;
-      flags[0] = c_in ^ c_in;
-    alu_ops::LR_SHIFT_OP:
-      out = lrs_out;
-    alu_ops::AR_SHIFT_OP:
-      out = ars_out;
-    alu_ops::NOT_OP:
-      out = not_out;
-    alu_ops::AND_OP:
-      out = and_out;
-    alu_ops::OR_OP:
-      out = or_out;
-    alu_ops::XOR_OP:
-      out = xor_out;
     default:
-      out = lls_out;
+      c_out = 0;
+      v = 0;
+      n = 0;
+      z = 0;
   endcase
   end
 
   assign y = out;
-
-  assign c_out = flags[3];
-  assign v = flags[2];
-  assign n = flags[1];
-  assign z = flags[0];
 
 endmodule
