@@ -1,6 +1,6 @@
 module arithmetic_right_shifter
 
-#(parameter W=3)
+#(parameter W = 4)
 (
   input logic signed [W-1:0] in,
   input logic [W-1:0] shift,

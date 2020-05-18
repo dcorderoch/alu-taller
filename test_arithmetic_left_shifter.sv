@@ -99,7 +99,7 @@ module test_arithmetic_left_shifter();
 
     shift = 2;
 
-	  a = 4'b0000;
+    a = 4'b0000;
     #100;
     assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("4'b0000 failed");
     #100;

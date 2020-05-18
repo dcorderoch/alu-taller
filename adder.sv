@@ -1,6 +1,14 @@
-module adder #(parameter N = 4)
-	(input logic  [N-1:0] a, b, input logic cin,
-	output logic [N-1:0] s,
-	output logic cout);
-	assign {cout,s} = a+b+cin;
+module adder
+
+#(parameter W = 4)
+(
+  input logic [W-1:0] a,
+  input logic [W-1:0] b,
+  input logic cin,
+  output logic [W-1:0] s,
+  output logic cout
+);
+
+  assign {cout, s} = a + b + cin;
+
 endmodule
