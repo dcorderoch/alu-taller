@@ -1,54 +1,54 @@
 module alu
 
-#(parameter w = 4)
+#(parameter W = 4)
 (
-input logic [w-1:0] opcode, // op selector
-input logic [w-1:0] a, // in 1
-input logic [w-1:0] b, // in 2
+input logic [W-1:0] opcode, // op selector
+input logic [W-1:0] a, // in 1
+input logic [W-1:0] b, // in 2
 
 input logic c_in, // carry in
 
-output logic [w-1:0] y, // out
+output logic [W-1:0] y, // out
 
 output logic c_out, // carry out
-output logic v, // overflow
+output logic v, // overfloW
 output logic n, // negative
 output logic z  // zero
 );
 
-  logic [w-1:0] lls_out;
-  logical_left_shifter #(w) _logical_left_shifter(a, b, lls_out);
+  logic [W-1:0] lls_out;
+  logical_left_shifter #(W) _logical_left_shifter(a, b, lls_out);
 
-  logic [w-1:0] lrs_out;
-  logical_right_shifter #(w) _logical_right_shifter(a, b, lrs_out);
+  logic [W-1:0] lrs_out;
+  logical_right_shifter #(W) _logical_right_shifter(a, b, lrs_out);
 
-  logic [w-1:0] als_out;
-  arithmetic_left_shifter #(w) _arithmetic_left_shifter(a, b, als_out);
+  logic [W-1:0] als_out;
+  arithmetic_left_shifter #(W) _arithmetic_left_shifter(a, b, als_out);
 
-  logic [w-1:0] ars_out;
-  arithmetic_right_shifter #(w) _arithmetic_right_shifter(a, b, ars_out);
+  logic [W-1:0] ars_out;
+  arithmetic_right_shifter #(W) _arithmetic_right_shifter(a, b, ars_out);
 
-  logic [w-1:0] not_out;
-  not_gate #(w) _not_gate(a, not_out);
+  logic [W-1:0] not_out;
+  not_gate #(W) _not_gate(a, not_out);
 
-  logic [w-1:0] and_out;
-  and_gate #(w) _and_gate(a, b, and_out);
+  logic [W-1:0] and_out;
+  and_gate #(W) _and_gate(a, b, and_out);
 
-  logic [w-1:0] or_out;
-  or_gate #(w) _or_gate(a, b, or_out);
+  logic [W-1:0] or_out;
+  or_gate #(W) _or_gate(a, b, or_out);
 
-  logic [w-1:0] xor_out;
-  xor_gate #(w) _xor_gate(a, b, xor_out);
+  logic [W-1:0] xor_out;
+  xor_gate #(W) _xor_gate(a, b, xor_out);
 
-  logic [w-1:0] adder_out;
-  adder #(w) _adder(a, b, cin, adder_out, c_out);
+  logic [W-1:0] adder_out;
+  adder #(W) _adder(a, b, cin, adder_out, c_out);
 
-  logic [w-1:0] sub_out;
-  sub #(w) _subtractor(a, b, cin, sub_out, c_out);
+  logic [W-1:0] sub_out;
+  sub #(W) _subtractor(a, b, cin, sub_out, c_out);
 
   import alu_ops::*;
 
-  logic [w-1:0] out;
+  logic [W-1:0] out;
 
   always_comb begin
   case (opcode)
@@ -66,18 +66,38 @@ output logic z  // zero
   endcase
   end
 
+  logic carry_out;
+  logic negative;
+  logic overflow;
+  logic zero;
+
   always_comb begin
-  case (opcode)
+  case (opcode) inside
+    alu_ops::ADD_OP, alu_ops::SUB_OP:
+      begin
+        carry_out = 'b0; // change
+        negative = out[W-1];
+        overflow = 'b0; // change
+        case (out) inside
+          'b0: z = 'b1;
+          default: zero = 'b0;
+        endcase
+      end
     default:
-    begin
-      c_out = 0;
-      v = 0;
-      n = 0;
-      z = 0;
-    end
+      begin
+        carry_out = 'b0;
+        overflow = 'b0;
+        negative = 'b0;
+        zero = 'b0;
+      end
   endcase
   end
 
   assign y = out;
+
+  assign c_out = carry_out;
+  assign n = negative;
+  assign v = overflow;
+  assign z = zero;
 
 endmodule
