@@ -24,7 +24,6 @@ module flag_calculator
           _cout = add_cout;
           _overflow = 'b0; // change for calculation
         end
-      default:
       alu_ops::SUB_OP:
         begin
           _cout = sub_cout;
