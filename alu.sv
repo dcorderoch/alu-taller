@@ -40,11 +40,14 @@ output logic zero
   logic [W-1:0] xor_out;
   xor_gate #(W) _xg(a, b, xor_out);
 
-  logic [W-1:0] add_out;
-  adder #(W) _adder(a, b, carry_in, add_out, carry_out);
+  logic _add_carry_out;
 
+  logic [W-1:0] add_out;
+  adder #(W) _adder(a, b, carry_in, add_out, _add_carry_out);
+
+  logic _sub_carry_out;
   logic [W-1:0] sub_out;
-  sub #(W) _sub(a, b, carry_in, sub_out, carry_out);
+  sub #(W) _sub(a, b, carry_in, sub_out, _sub_carry_out);
 
   logic [W-1:0] out;
   selector_mux #(W) _mux(opcode,
@@ -61,7 +64,15 @@ output logic zero
     out
   );
 
-  flag_calculator #(W) _flag_calc(opcode, out, negative, overflow, zero);
+  flag_calculator #(W) _flag_calc(opcode,
+    out,
+    negative,
+    overflow,
+    zero,
+    _add_carry_out,
+    _sub_carry_out,
+    carry_out
+  );
 
   assign _output = out;
 
