@@ -534,8 +534,8 @@ module test_alu();
     b = 4'b0110;
     cin = 1;
     #100;
-    assert(y === 4'b0011) $display("Ok, y is 4'b0011"); else $error("sum or carry not correct");
-    assert(cout === 1) $display("Ok, cout is 1"); else $error("sum or carry not correct");
+    assert(y === 4'b1011) $display("Ok, y is 4'b1011"); else $error("sum or carry not correct");
+    assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
     #100;
 
     // end ADD operations
