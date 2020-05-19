@@ -9,6 +9,6 @@ module sub
   output logic cout
 );
 
-  assign {cout, s} = a - b - cin;
+  assign {cout, s} = a - b + cin;
 
 endmodule
