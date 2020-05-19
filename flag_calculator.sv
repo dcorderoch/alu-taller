@@ -13,14 +13,12 @@ module flag_calculator
 );
 
   logic _cout;
-  logic _negative;
   logic _overflow;
   logic _zero;
 
   import alu_ops::*;
 
   always_comb begin
-    _negative = op_result[W-1];
 
     case (op_result)
       'b0: _zero = 'b1;
@@ -42,7 +40,7 @@ module flag_calculator
   end
 
   assign cout = _cout;
-  assign negative = _negative;
+  assign negative = op_result[W-1];
   assign overflow = _overflow;
   assign zero = _zero;
 
