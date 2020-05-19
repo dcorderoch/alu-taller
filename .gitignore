@@ -1,2 +1,14 @@
 
 db/
+
+incremental_db/
+
+output_files/
+
+simulation/modelsim/
+
+*.rpt
+
+alu-taller.qsf
+
+*.qsf
