@@ -25,18 +25,19 @@ module flag_calculator
       default: _zero = 'b0;
     endcase
 
-  case (opcode)
-    alu_ops::ADD_OP:
-      begin
-        _cout = add_cout;
-        _overflow = 'b0; // change for calculation
-      end
-    alu_ops::SUB_OP:
-      begin
-        _cout = sub_cout;
-        _overflow = 'b0; // change for calculation
-      end
-  endcase
+    case (opcode)
+      alu_ops::ADD_OP:
+        begin
+          _cout = add_cout;
+          _overflow = 'b0; // change for calculation
+        end
+      default:
+      alu_ops::SUB_OP:
+        begin
+          _cout = sub_cout;
+          _overflow = 'b0; // change for calculation
+        end
+    endcase
   end
 
   assign cout = _cout;
