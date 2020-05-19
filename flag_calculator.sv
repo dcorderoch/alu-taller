@@ -14,17 +14,10 @@ module flag_calculator
 
   logic _cout;
   logic _overflow;
-  logic _zero;
 
   import alu_ops::*;
 
   always_comb begin
-
-    case (op_result)
-      'b0: _zero = 'b1;
-      default: _zero = 'b0;
-    endcase
-
     case (opcode)
       alu_ops::ADD_OP:
         begin
@@ -37,12 +30,17 @@ module flag_calculator
           _cout = sub_cout;
           _overflow = 'b0; // change for calculation
         end
+      default:
+        begin
+          _cout = 'b0;
+          _overflow = 'b0;
+        end
     endcase
   end
 
   assign cout = _cout;
   assign negative = op_result[W-1];
   assign overflow = _overflow;
-  assign zero = _zero;
+  assign zero = ( op_result === 'b0 );
 
 endmodule
