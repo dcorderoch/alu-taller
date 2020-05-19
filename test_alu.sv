@@ -427,18 +427,18 @@ module test_alu();
     #100;
 
     // end XOR operations
-	 
-	 opcode = alu_ops::SUB_OP;
-	 a = 4'b0001;
-	 b = 4'b0000;
-	 cin = 4'b0000;
-	 #100;
-	 assert(y === 4'b0001) $display("Ok, y is 4'b0001"); else $error("sub or carry not correct");
+
+    opcode = alu_ops::SUB_OP;
+    a = 4'b0001;
+    b = 4'b0000;
+    cin = 4'b0000;
+    #100;
+    assert(y === 4'b0001) $display("Ok, y is 4'b0001"); else $error("sub or carry not correct");
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sub or carry not correct");
     #100;
-	 
-	 opcode = alu_ops::SUB_OP;
-	 a = 4'b0011;
+
+    opcode = alu_ops::SUB_OP;
+    a = 4'b0011;
     b = 4'b0001;
     cin = 0;
     #100;
@@ -446,7 +446,7 @@ module test_alu();
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sub or carry not correct");
     #100;
 
-	 opcode = alu_ops::SUB_OP;
+    opcode = alu_ops::SUB_OP;
     a = 4'b0101;
     b = 4'b0010;
     cin = 0;
@@ -455,7 +455,7 @@ module test_alu();
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sub or carry not correct");
     #100;
 
-	 opcode = alu_ops::SUB_OP;
+    opcode = alu_ops::SUB_OP;
     a = 4'b1000;
     b = 4'b0011;
     cin = 1;
@@ -464,7 +464,7 @@ module test_alu();
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sub or carry not correct");
     #100;
 
-	 opcode = alu_ops::SUB_OP;
+    opcode = alu_ops::SUB_OP;
     a = 4'b1011;
     b = 4'b0111;
     cin = 0;
@@ -473,7 +473,7 @@ module test_alu();
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sub or carry not correct");
     #100;
 
-	 opcode = alu_ops::SUB_OP;
+    opcode = alu_ops::SUB_OP;
     a = 4'b1111;
     b = 4'b1000;
     cin = 1;
@@ -481,11 +481,11 @@ module test_alu();
     assert(y === 4'b0110) $display("Ok, y is 4'b0110"); else $error("sub or carry not correct");
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sub or carry not correct");
     #100;
-	 
-	 // end SUB operations
-	 
-	 opcode = alu_ops::ADD_OP;
-	 a = 4'b0000;
+
+    // end SUB operations
+
+    opcode = alu_ops::ADD_OP;
+    a = 4'b0000;
     b = 4'b0000;
     cin = 0;
     #100;
@@ -493,7 +493,7 @@ module test_alu();
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
     #100;
 
-	 opcode = alu_ops::ADD_OP;
+    opcode = alu_ops::ADD_OP;
     a = 4'b0001;
     b = 4'b0000;
     cin = 0;
@@ -502,7 +502,7 @@ module test_alu();
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
     #100;
 
-	 opcode = alu_ops::ADD_OP;
+    opcode = alu_ops::ADD_OP;
     a = 4'b0000;
     b = 4'b0001;
     cin = 0;
@@ -511,7 +511,7 @@ module test_alu();
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
     #100;
 
-	 opcode = alu_ops::ADD_OP;
+    opcode = alu_ops::ADD_OP;
     a = 4'b0000;
     b = 4'b0000;
     cin = 1;
@@ -520,7 +520,7 @@ module test_alu();
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
     #100;
 
-	 opcode = alu_ops::ADD_OP;
+    opcode = alu_ops::ADD_OP;
     a = 4'b0101;
     b = 4'b0001;
     cin = 0;
@@ -529,7 +529,7 @@ module test_alu();
     assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
     #100;
 
-	 opcode = alu_ops::ADD_OP;
+    opcode = alu_ops::ADD_OP;
     a = 4'b0100;
     b = 4'b0110;
     cin = 1;
@@ -537,9 +537,9 @@ module test_alu();
     assert(y === 4'b0011) $display("Ok, y is 4'b0011"); else $error("sum or carry not correct");
     assert(cout === 1) $display("Ok, cout is 1"); else $error("sum or carry not correct");
     #100;
-	 
-	 // end ADD operations
-	 
+
+    // end ADD operations
+
   end
 
 endmodule
