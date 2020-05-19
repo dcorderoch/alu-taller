@@ -512,12 +512,12 @@ module test_alu();
     #100;
 
     opcode = alu_ops::ADD_OP;
-    a = 4'b0000;
-    b = 4'b0000;
+    a = 4'b1000;
+    b = 4'b0111;
     cin = 1;
     #100;
-    assert(y === 4'b0001) $display("Ok, y is 4'b0001"); else $error("sum or carry not correct");
-    assert(cout === 0) $display("Ok, cout is 0"); else $error("sum or carry not correct");
+    assert(y === 4'b0000) $display("Ok, y is 4'b0000"); else $error("sum or carry not correct");
+    assert(cout === 1) $display("Ok, cout is 1"); else $error("sum or carry not correct");
     #100;
 
     opcode = alu_ops::ADD_OP;
