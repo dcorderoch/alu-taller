@@ -65,6 +65,8 @@ output logic zero
   );
 
   flag_calculator #(W) _flag_calc(opcode,
+    a,
+    b,
     out,
     negative,
     overflow,

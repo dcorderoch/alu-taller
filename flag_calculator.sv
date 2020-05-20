@@ -3,6 +3,8 @@ module flag_calculator
 #(parameter W = 4)
 (
   input logic [W-1:0] opcode,
+  input logic [W-1:0] a,
+  input logic [W-1:0] b,
   input logic [W-1:0] op_result,
   output logic negative,
   output logic overflow,
@@ -22,12 +24,12 @@ module flag_calculator
       alu_ops::ADD_OP:
         begin
           _cout = add_cout;
-          _overflow = 'b0; // change for calculation
+          _overflow = ( a[W-1] !== op_result[W-1] ) && ( a[W-1] === b[W-1] );
         end
       alu_ops::SUB_OP:
         begin
           _cout = sub_cout;
-          _overflow = 'b0; // change for calculation
+          _overflow = ( a[W-1] !== op_result[W-1] ) && ( a[W-1] !== b[W-1] );
         end
       default:
         begin
